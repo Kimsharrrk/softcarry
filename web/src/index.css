@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --linen-bg: #ded9cf;
+  --linen-dark: #201e1c;
+  --paper-cream: #faf7f2;
+  --ink-primary: #1c1917;
+  --ink-secondary: #57534e;
+  --ink-muted: #78716c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Handwritten annotation font like the photo */
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.font-mono-subtle {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Realistic woven linen fabric background */
+.linen-texture {
+  background-color: #dfd9ce;
+  background-image: 
+    radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 8px 8px, 16px 16px, 16px 16px;
+}
+
+/* Realistic flat-lay object shadow */
+.flatlay-shadow {
+  box-shadow: 
+    0 12px 28px -4px rgba(44, 39, 34, 0.18),
+    0 4px 10px -2px rgba(44, 39, 34, 0.12),
+    0 1px 3px 0 rgba(44, 39, 34, 0.08);
+}
+
+.flatlay-shadow-sm {
+  box-shadow: 
+    0 6px 14px -2px rgba(44, 39, 34, 0.15),
+    0 2px 5px -1px rgba(44, 39, 34, 0.1);
+}
+
+.flatlay-shadow-lg {
+  box-shadow: 
+    0 20px 40px -8px rgba(44, 39, 34, 0.22),
+    0 8px 16px -4px rgba(44, 39, 34, 0.14);
+}
+
+/* Micro paper texture */
+.paper-card {
+  background: #fdfbf7;
+  border: 1px solid rgba(120, 113, 108, 0.15);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 113, 108, 0.25);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 113, 108, 0.4);
+}
+
+/* Board: true squares. Tile spans n x n cells, so width === height. */
+.board-grid {
+  --cell: 96px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--cell));
+  grid-auto-rows: var(--cell);
+  grid-auto-flow: dense;
+  gap: 12px;
+  justify-content: center;
+}
+@media (max-width: 640px) {
+  .board-grid { --cell: 72px; gap: 8px; }
+}

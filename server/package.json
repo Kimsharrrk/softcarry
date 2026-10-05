@@ -1,0 +1,24 @@
+{
+  "name": "edcs-server",
+  "version": "1.0.0",
+  "description": "EDCS (Every Day Carry Software) High-Performance Core API & Script Engine",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc && mkdir -p dist/registry dist/templates && cp src/registry/packages.json dist/registry/ && cp src/templates/*.ps1 src/templates/*.sh dist/templates/",
+    "start": "node dist/server.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "test": "node dist/test.js"
+  },
+  "dependencies": {
+    "@fastify/cors": "^10.0.1",
+    "dotenv": "^16.4.7",
+    "fastify": "^5.2.1",
+    "ioredis": "^5.4.2",
+    "lru-cache": "^11.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.2"
+  }
+}
